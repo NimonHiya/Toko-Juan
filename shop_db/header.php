@@ -19,18 +19,18 @@ $cart_count = mysqli_num_rows($cart_query);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Shopping Cart</title>
+    <title>SHOP DB</title>
 </head>
 <body>
 <header>
     <div class="container">
         <div class="logo">
-            <a href="index.php">MyShop</a>
+            <a href="index.php">SHOP DB</a>
         </div>
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="cart.php">Cart (<span id="cart-count"><?php echo $cart_count; ?></span>)</a></li>
+                <li><a href="cart.php">Keranjang (<span id="cart-count"><?php echo $cart_count; ?></span>)</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>

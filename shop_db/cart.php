@@ -41,15 +41,14 @@ include 'header.php';
     ?>
 
     <div class="shopping-cart">
-        <h1 class="heading">Shopping Cart</h1>
+        <h1 class="heading">Keranjang</h1>
         <table>
             <thead>
                 <th>Image</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total Price</th>
-                <th>Action</th>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Jumlah</th>
+                <th>Hapus</th>
             </thead>
             <tbody>
                 <?php
@@ -57,6 +56,11 @@ include 'header.php';
                 $grand_total = 0;
                 if (mysqli_num_rows($cart_query) > 0) {
                     while ($fetch_cart = mysqli_fetch_assoc($cart_query)) {
+                        // Calculate subtotal for this item
+                        $fetch_cart['price'] = floatval($fetch_cart['price']);
+                        $fetch_cart['quantity'] = intval($fetch_cart['quantity']);
+                        $sub_total = $fetch_cart['price'] * $fetch_cart['quantity'];
+                        $grand_total += $sub_total;
                 ?>
                         <tr>
                             <td><img src="<?php echo $fetch_cart['image']; ?>" height="100" alt=""></td>
@@ -69,34 +73,24 @@ include 'header.php';
                                     <input type="submit" name="update_cart" value="Update" class="option-btn">
                                 </form>
                             </td>
-                            <td>
-                                <?php
-                                // Ensure the quantity is a numeric value before calculating the subtotal
-                                $fetch_cart['price'] = floatval($fetch_cart['price']);
-                                $fetch_cart['quantity'] = intval($fetch_cart['quantity']);
-                                $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']);
-                                echo '$' . $sub_total . '/-';
-                                ?>
-                            </td>
-                            <td><a href="cart.php?remove=<?php echo $fetch_cart['id']; ?>" class="delete-btn" onclick="return confirm('Remove item from cart?');">Remove</a></td>
+                            <td><a href="cart.php?remove=<?php echo $fetch_cart['id']; ?>" class="delete-btn" onclick="return confirm('Remove item from cart?');">Hapus</a></td>
                         </tr>
                 <?php
-                        $grand_total += $sub_total;
                     }
                 } else {
-                    echo '<tr><td style="padding:20px; text-transform:capitalize;" colspan="6">No item added</td></tr>';
+                    echo '<tr><td style="padding:20px; text-transform:capitalize;" colspan="5">No item added</td></tr>';
                 }
                 ?>
                 <tr class="table-bottom">
-                    <td colspan="4">Total Price:</td>
+                    <td colspan="3">Total Harga:</td>
                     <td>$<?php echo $grand_total; ?>/-</td>
-                    <td><a href="cart.php?delete_all" onclick="return confirm('Delete all from cart?');" class="delete-btn <?php echo ($grand_total > 1) ? '' : 'disabled'; ?>">Delete All</a></td>
+                    <td><a href="cart.php?delete_all" onclick="return confirm('Delete all from cart?');" class="delete-btn <?php echo ($grand_total > 0) ? '' : 'disabled'; ?>">Hapus semua</a></td>
                 </tr>
             </tbody>
         </table>
 
         <div class="cart-btn">
-            <a href="#" class="btn <?php echo ($grand_total > 1) ? '' : 'disabled'; ?>">Proceed to Checkout</a>
+            <a href="#" class="btn <?php echo ($grand_total > 0) ? '' : 'disabled'; ?>">Proses checkout</a>
         </div>
 
     </div>

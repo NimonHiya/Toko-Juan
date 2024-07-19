@@ -39,7 +39,7 @@ include 'header.php';
     ?>
 
     <div class="products">
-        <h1 class="heading">Products</h1>
+        <h1 class="heading">Produk</h1>
         <div class="box-container">
 
             <?php
@@ -55,7 +55,7 @@ include 'header.php';
                         <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
                         <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
                         <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
-                        <input type="submit" value="Add to Cart" name="add_to_cart" class="btn">
+                        <input type="submit" value="Tambah ke keranjang" name="add_to_cart" class="btn">
                     </form>
             <?php
                 }
