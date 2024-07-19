@@ -1,9 +1,11 @@
 # Toko-Juan
 Tugas Sekolah
 Halaman user : 
-![admin](halaman/halamanindex.png)
+![admin](halaman/home.png)
 Tampilan login :
-![admin](halaman/halamanlogin.png)
+![admin](halaman/login.png)
 Shopping register :
-![admin](halaman/halamanregister.png)
+![admin](halaman/register.png)
+Shopping cart:
+![admin](halaman/keranjang.png)
 
