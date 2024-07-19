@@ -279,6 +279,46 @@ body{
    user-select: none;
 }
 
+header {
+   background-color: var(--black);
+   padding: 20px 0;
+   box-shadow: var(--box-shadow);
+}
+
+header .container {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+header .logo a {
+   color: var(--white);
+   font-size: 24px;
+   font-weight: 600;
+   text-transform: uppercase;
+}
+
+header nav ul {
+   display: flex;
+   list-style: none;
+}
+
+header nav ul li {
+   margin: 0 10px;
+}
+
+header nav ul li a {
+   color: var(--white);
+   font-size: 18px;
+   text-transform: uppercase;
+   padding: 5px 10px;
+   transition: 0.3s;
+}
+
+header nav ul li a:hover {
+   background-color: var(--blue);
+   border-radius: 5px;
+}
 
 @media (max-width:1200px){
    .container .shopping-cart{
@@ -289,12 +329,89 @@ body{
       width: 1200px;
    }
 }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
-@media (max-width:450px){
-   .container .heading{
-      font-size: 30px;
-   }
-   .container .products .box-container .box img{
-      height: 200px;
-   }
-} 
+:root{
+    --blue: #3498db;
+    --red: #e74c3c;
+    --orange: #f39c12;
+    --black: #333;
+    --white: #fff;
+    --light-bg: #eee;
+    --box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    --border: 2px solid var(--black);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+}
+
+body{
+    background-color: var(--light-bg);
+}
+
+header{
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.header .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.header .navbar-brand{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.header .navbar-nav .nav-item{
+    margin: 0 10px;
+}
+
+.header .navbar-nav .nav-link{
+    font-size: 16px;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.header .navbar-nav .nav-link:hover{
+    color: var(--blue);
+}
+
+.header .navbar-toggler{
+    border-color: var(--white);
+}
+
+.header .navbar-toggler-icon{
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%288, 8, 8, 0.5%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}
+
+.header .navbar-collapse{
+    justify-content: flex-end;
+}
+
+.header .form-inline a{
+    color: var(--white);
+    background-color: var(--blue);
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.header .form-inline a:hover{
+    background-color: var(--red);
+}
+
+.strip{
+    background-color: var(--light-bg);
+    color: var(--black);
+    padding: 10px 0;
+}
